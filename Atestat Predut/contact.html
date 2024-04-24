@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="contact.css">
+  <title>Formular de Întrebări</title>
+
+</head>
+<body>
+<img src="https://profitpoint.ro/image/cache/customer/150_AWP0D_educfin-655x369.png" alt="">
+  <div class="question-section">
+    <h2>Întrebări de la Vizitatori</h2>
+    <form>
+      <label for="name">Nume:</label>
+      <input type="text" id="name" required>
+
+      <label for="question">Întrebare:</label>
+      <textarea id="question" required></textarea>
+
+      <button type="button" onclick="submitQuestion()">Trimite întrebarea</button>
+    </form>
+  </div>
+
+  <script>
+    function submitQuestion() {
+      var name = document.getElementById('name').value;
+      var question = document.getElementById('question').value;
+
+      console.log('Nume:', name);
+      console.log('Întrebare:', question);
+    }
+  </script>
+</body>
+</html>

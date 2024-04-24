@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Calculator Financiar</title>
+</head>
+<body>
+  <h1>Calculator Financiar</h1>
+
+  <label for="amount">Suma:</label>
+  <input type="number" id="amount" placeholder="Introduceți suma"><br>
+
+  <label for="tva">TVA (%):</label>
+  <input type="number" id="tva" placeholder="Introduceți TVA"><br>
+
+  <label for="interest">Dobândă anuală (%):</label>
+  <input type="number" id="interest" placeholder="Introduceți dobânda"><br>
+
+  <label for="months">Numărul de luni:</label>
+  <input type="number" id="months" placeholder="Introduceți numărul de luni"><br>
+
+  <button onclick="calculate()">Calculează</button>
+
+  <h2>Rezultat:</h2>
+  <p id="result"></p>
+
+  <script>
+    function calculate() {
+      var amount = document.getElementById('amount').value;
+      var tva = document.getElementById('tva').value;
+      var interest = document.getElementById('interest').value;
+      var months = document.getElementById('months').value;
+
+      var principal = parseFloat(amount);
+      var tvaRate = parseFloat(tva) / 100;
+      var annualInterest = parseFloat(interest) / 100;
+      var numberOfMonths = parseFloat(months);
+
+      var tvaAmount = principal * tvaRate;
+      var totalAmount = principal + tvaAmount;
+      var monthlyInterest = (annualInterest / 12);
+      var monthlyPayments = (principal * monthlyInterest) / (1 - Math.pow(1 + monthlyInterest, -numberOfMonths));
+
+      var result = "Suma totală cu TVA: " + (totalAmount + tvaAmount).toFixed(2) +
+                   "<br>Dobândă totală: " + ((monthlyPayments * numberOfMonths) - principal).toFixed(2) +
+                   "<br>Plată lunară: " + monthlyPayments.toFixed(2);
+
+      document.getElementById('result').innerHTML = result;
+    }
+  </script>
+<li>TVA înseamnă "Taxa pe Valoarea Adăugată". Este o taxă aplicată la produse și servicii, percepută la fiecare etapă a lanțului de producție și distribuție. Consumatorii plătesc TVA în momentul cumpărării, iar această taxă contribuie la veniturile statului.</li>
+            <li>Dobânda este costul sau profitul asociat cu împrumutarea banilor. Este o sumă adițională plătită peste capitalul împrumutat și reprezintă compensația pentru utilizarea banilor și riscul asociat împrumutului.</li>
+<img src="https://cdn.pixabay.com/photo/2014/07/06/13/55/calculator-385506_640.jpg" alt="">
+</body>
+<
